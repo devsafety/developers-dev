@@ -1,0 +1,36 @@
+name: "Registering a developer"
+
+on:
+    issues:
+        types: [opened]
+
+permissions: 
+    issues: read
+    contents: write
+
+
+jobs:
+    get-json:
+        name: "Get Issue form JSON"
+        runs-on: ubuntu-latest
+        steps:             
+            - name: GitHub Issue Forms Body Parser
+              id: body-parser
+              uses: zentered/issue-forms-body-parser@v2.2.0
+            - name: Get current date
+              id: date
+              run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+            - name: Write File
+              uses: DamianReeves/write-file-action@v1.2
+              with:
+                  write-mode: overwrite
+                  path: ./{{ steps.body-parser.outputs.json[0]}}/{{ steps.date.outputs.date }}.json
+                  content: ${{ steps.body-parser.outputs.json }}
+            - name: Commit and push
+              uses: Andro999b/push@v1.3
+              with:
+                    github_token: ${{ secrets.GITHUB_TOKEN }}
+                    branch: main
+                    force: true
+                    message: "chore: add {{ step.body-parser.outputs.json[0]}}/{{ steps.date.outputs.date }}.json"
+            
