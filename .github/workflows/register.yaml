@@ -2,7 +2,6 @@ name: "Registering a developer"
 
 on:
     issues:
-        types: [opened]
 
 permissions: 
     issues: read
@@ -17,7 +16,7 @@ jobs:
             - name: GitHub Issue Forms Body Parser
               id: body-parser
               uses: zentered/issue-forms-body-parser@v2.2.0
-            - run: echo ${{ toJSON(steps.parse.outputs.data) }}
+            - run: echo ${{ toJSON(steps.body-parser.outputs.data) }}
 
             - name: Get current date
               id: date
