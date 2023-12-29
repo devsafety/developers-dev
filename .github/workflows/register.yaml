@@ -25,7 +25,7 @@ jobs:
               uses: DamianReeves/write-file-action@v1.2
               with:
                   write-mode: overwrite
-                  path: ./{{ toJSON(step.body-parser.outputs.json)[0]}}/{{ steps.date.outputs.date }}.json
+                  path: /{{ toJSON(step.body-parser.outputs.json)[0]}}/{{ steps.date.outputs.date }}.json
                   contents: ${{ toJSON(steps.body-parser.outputs.json) }}
             - name: Commit and push
               uses: Andro999b/push@v1.3
