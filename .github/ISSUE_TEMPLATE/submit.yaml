@@ -1,0 +1,63 @@
+name: Submit a developer
+description: Submit a developer who isn\'t safe
+title: "[SUBMISSION]: "
+labels: ["report", "submit", "developer"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this developer report!
+  - type: input
+    id: contact
+    attributes:
+      label: Developer Contact Details
+      description: How can we get in touch with the developer you reported?
+      placeholder: ex. email@example.com, https://github.com/user
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Also tell us, what did you expect to happen?
+      placeholder: Tell us what you see!
+      value: "He did..."
+    validations:
+      required: true
+  - type: dropdown
+    id: type-of-act
+    attributes:
+      label: Type of act
+      description: What the developer did ?
+      options:
+        - Scam (default)
+        - Stollen code
+        - Insults
+        - Threats
+        - Other (please tell us)
+      default: 0
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: shell
+  - type: markdown
+    id: proofs
+    attributes:
+      label: Proof 
+      description: Also can you send proof of the act ?
+      placeholder: Tell us what you see!
+      value: "![Alt text](image url)"
+    validations:
+      required: true
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/devsafety/developers/)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
