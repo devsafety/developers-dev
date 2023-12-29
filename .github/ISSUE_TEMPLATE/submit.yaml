@@ -47,9 +47,6 @@ body:
   - type: markdown
     id: proofs
     attributes:
-      label: Proof 
-      description: Also can you send proof of the act ?
-      placeholder: Tell us what you see!
       value: "![Alt text](image url)"
     validations:
       required: true
