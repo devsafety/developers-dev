@@ -39,11 +39,10 @@ body:
     validations:
       required: true
   - type: textarea
-    id: logs
+    id: act-detailled
     attributes:
-      label: Relevant log output
-      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
-      render: shell
+      label: Act Explaination
+      description: Please provide more details about the infraction.
   - type: textarea
     id: proofs
     attributes:
