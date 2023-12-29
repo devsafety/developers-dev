@@ -25,7 +25,7 @@ jobs:
               with:
                   write-mode: overwrite
                   path: ./{{ steps.body-parser.outputs.json[0]}}/{{ steps.date.outputs.date }}.json
-                  content: ${{ steps.body-parser.outputs.json }}
+                  contents: ${{ steps.body-parser.outputs.json }}
             - name: Commit and push
               uses: Andro999b/push@v1.3
               with:
